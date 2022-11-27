@@ -11,14 +11,13 @@ Cursor.prototype = {
   *[Symbol.iterator]() {
     
     const { cursors } = this
-    const last = cursors.at(-1)
     // permutatibg with a zero-cardinality is a zero set
     if( cursors.some( ({ array: { length } }) => 
       length <= 0 ) ) {
       return }
     
-    yields: // while true ?!?!
-    while( last.index < last.array.length ) {
+    yields:
+    while( true ) {
       // log("yeild")
       
       const result = Array.from(cursors)
